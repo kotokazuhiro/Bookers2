@@ -1,0 +1,26 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <%= render 'userinfo', book: @book, user: @user %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table class="table">
+         <thead>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+         </thead>
+        <tboby>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <%= link_to image_tag(@user.get_profile_image(80, 80)), user_path(book.user.id) %>
+              </td> 
+              <td><%= link_to book_path(book.id) do %><%= book.title %><% end %></td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tboby>
+      </table>
+    </div>
+  </div>
+</div>
